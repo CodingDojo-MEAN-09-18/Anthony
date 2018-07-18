@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- There are different versions that may affect the whole project(ajax) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Notes: for Tony, watch out with the spacing, it causes errors: This works -->
+    <!-- Also the buttons must go first then the script for that button -->
+    <button id="change">Get Name</button>
+    <script type="text/javascript">
+    $('#change').click(function(){
+	    $.get("https://api.github.com/users/AnthonyR7", displayName);
+    });
+	
+    function displayName(data) {
+        $('body').append("<p>"+data.login+"</p>");
+    }
+    </script>
+</body>
+</html>

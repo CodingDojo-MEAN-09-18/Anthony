@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gamer</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+    <!-- Notes: Look closely at the word game and -->
+    <h3 id = "que" ></h3>
+    <p id = "bad_answer"></p>
+    <p id = "good" ></p>
+    <script type="text/javascript">
+    // The code below gets the api and has the function place its value in the res
+    // Then the second line calls an id and give it the value
+    $.get("https://opentdb.com/api.php?amount=10", function(res) {
+            $('#que').html("<h1>" + res.results[0].question + "<h1>");
+            $('#bad_answer').html("<h2>" + res.results[0].incorrect_answers + "<h2>");
+            $('#good').html("<h2>" + res.results[0].correct_answer + "<h2>")
+            
+
+            }, "json");
+    
+    
+    </script>
+</html>
