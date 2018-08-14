@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+</head>
+<body>
+  <h1>The Dojo Message Board</h1>
+  <form action = "/process" method = "POST">
+    Name: <input type="text" name = "name">
+    Message: <textarea name="upost" cols="20" rows="2"></textarea>
+    <input type = "submit" value = "Post Message">
+  </form>
+  <div id = "cblock">
+    <% for (const post of info) { %>
+      Post Name :<%= post.name %> Post Message: <%= post.message %>
+      <form action = "/create_comment/<%= post.id %>" method = "GET">
+        Name: <input type = "text" name = "cname">
+        Comment: <input type = "text" name = "comment">
+        <input type = "submit" value = "Post Comment">
+      </form>
+      <%= post.comment %>
+    <% } %>
+  </div>
+</body>
+</html>
