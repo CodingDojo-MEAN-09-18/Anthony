@@ -1,0 +1,44 @@
+<html>
+<head>
+  <title>Login</title>
+</head>
+<body>
+  <h2>Registration</h2>
+  <% if(messages.success) { %>
+    <h1>Succesfully Registared New User</h1>
+  <% } %>
+  <% if(messages.registration) { %>
+    <h3>Registration Error</h3>
+    <ul>
+      <% for (var x of messages.registration) { %>
+        <li style="color:red;"><%= x %></li>
+      <% } %>
+    </ul>
+  <% } %>
+  <form action = 'registar' method = "POST">
+    <ul>
+      <li>First Name:<input type = "text" name = "first_name"></li>
+      <li>Last Name: <input type = "text" name = "last_name"></li>
+      <li>Email: <input type = "text" name = "email"></li>
+      <li>BirthDay:<ul>
+        <li>Month:<input type="number" name="month"></li>
+        <li>Day:<input type="number" name="day"></li>
+        <li>Year:<input type="number" name="year"></li>
+        </ul>
+      <li>Password: <input type = "text" name = "password"></li>
+      <li><input type = 'submit' value = "SUBMIT"></li>
+    </ul>
+  </form>
+  <% if(messages.password) { %>
+    <h3>Wrong Password</h3>
+  <% } %>
+  <%if(messages.email) { %>
+    <h3>Wrong Email</h3>
+  <% } %>
+  <form action="/login" method="POST">
+    Emal:<input type="text" name='email'>
+    Password: <input type="text" name="password">
+    <button>Login</button>
+  </form>
+</body>
+</html>
