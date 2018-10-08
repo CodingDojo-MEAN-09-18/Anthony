@@ -1,0 +1,26 @@
+<!--The content below is only a placeholder and can be replaced.-->
+  <h2>
+    Welcome to {{ title }}!
+    <!--*ngFor is for playing with arrays-->
+    <div *ngFor="let stuff of task">
+      <ul>
+        <li>Title:{{ stuff.title }}, Description: {{stuff.description}}<button (click) = "getInfo(stuff._id)">Edit</button>  <button (click) = "getRid(stuff._id)">Delete</button></li>
+      </ul>
+    </div>
+  </h2>
+  <div *ngIf= 'tasks_info'>
+    <form (submit)="editSubmit()">
+      <input type="hidden" name="tasks_info.id" [ngModel]="tasks_info.id">
+      Title: <input type="text" name="tasks_info.title"  [(ngModel)]="tasks_info.title" />
+      Description: <input type="text" width ='35'name='tasks_info.description' [(ngModel)]="tasks_info.description" />
+      <input type="submit" value="Edit Task" />
+    </form>
+  </div>
+  <form (submit)="onSubmit()">
+    <!-- use the json pipe to see how newTask changes in real time -->
+    <p> {{ newTask | json }} </p>
+    Title: <input type="text" name="newTask.title" [(ngModel)]="newTask.title" />
+    Description: <input type="text" name="newTask.description" [(ngModel)]="newTask.description" />
+    <input type="submit" value="Create Task" />
+  </form>
+
