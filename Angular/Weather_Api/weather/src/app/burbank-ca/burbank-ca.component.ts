@@ -16,6 +16,7 @@ export class BurbankCAComponent implements OnInit {
     });
   }
   goHome() {
-    this._router.navigate(['/home']);
+    this._router.navigate(['/']);
+    console.log('This is from burbank');
   }
 }
