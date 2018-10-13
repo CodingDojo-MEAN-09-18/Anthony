@@ -1,0 +1,15 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<ul>
+  
+  <li><button [routerLink]="['seattle']">Seattle</button></li>
+  <li><button [routerLink]="['sanjose']">SanJose</button></li>
+  <li><button [routerLink]="['burbank']">Burbank</button></li>
+  <li><button [routerLink]="['dallas']">Dallas</button></li>
+  <li><button [routerLink]="['dc']">Washington</button></li>
+  <li><button [routerLink]="['chicago']">Chicago</button></li>
+</ul>
+<router-outlet></router-outlet>
