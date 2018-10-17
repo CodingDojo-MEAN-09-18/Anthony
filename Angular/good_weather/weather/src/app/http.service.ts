@@ -4,7 +4,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) {
+    this.getPokemon();
+  }
   getPokemon() {
       const bulbasaur = this._http.get('https://pokeapi.co/api/v2/pokemon/1/');
       let abilities = '';
