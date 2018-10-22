@@ -1,0 +1,9 @@
+<p>
+  new works!
+</p>
+<form (submit)="NewAuthor()">
+  <!-- use the json pipe to see how newTask changes in real time -->
+  <p> {{ addAuthor | json }} </p>
+  Author: <input type="text" name="addAuthor.author" [(ngModel)]="addAuthor.author" />
+  <input type="submit" value="Create Author" />
+</form>
