@@ -22,10 +22,10 @@ module.exports = {
     },
 
     add: (req, res) => {
-        console.log('this is form add in controllers', req.body.data)
-        Author.create(req.body.data)
-        .then( author =>res.json(author))
-        .catch( error => res.json(error));
+        console.log('this is form add in controllers', req);
+        // Author.create(req.body.data)
+        // .then( author =>res.json(author))
+        // .catch( error => res.json(error));
     },
     update: (req, res) =>{
       Author.update({_id:req.params.id})

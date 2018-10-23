@@ -7,6 +7,10 @@ export class HttpService {
   constructor(private _http: HttpClient) {
     // this.getAuthors();
   }
+  addAuthor(newAuthor) {
+    console.log('This is from addAuthors in service');
+    return this._http.post('/addAuthor', newAuthor);
+  }
   getAuthors() {
     return this._http.get('/authors');
   }
@@ -17,10 +21,6 @@ export class HttpService {
     // provide the url of your post route - make sure this is set up in your server!
     // console.log('this is from the post to server function', num);
     return this._http.post('/showAuthors', num);
-  }
-  addAuthor(newAuthor) {
-    console.log('This is from addAuthors in service');
-    return this._http.post('/addAuthor', newAuthor);
   }
   update(editAuthor) {
     console.log('This is from update', editAuthor);

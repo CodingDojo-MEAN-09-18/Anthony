@@ -10,6 +10,7 @@ module.exports = function(app){
     });
 
     app.post('/addAuthor', function(req, res) {
+        console.log('route');
         author.add(req, res);
     });
     app.put('/:id',function(req, res){
