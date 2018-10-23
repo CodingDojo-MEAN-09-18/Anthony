@@ -4,7 +4,6 @@ const express = require('express'),
     app = express();
 
 
-// this route will be triggered if any of the routes above did not match
 app.use(express.static(__dirname + '/public/dist/public'));
 app.use(express.static(path.join(__dirname, './client/static')));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,6 +12,7 @@ app.use(bodyParser.json());
 app.set('views', path.join(__dirname, './client/views'));
 app.set('view engine', 'ejs');
 
+// this route will be triggered if any of the routes above did not match
 app.all("*", (req,res,next) => {
     res.sendFile(path.resolve("./public/dist/public/index.html"))
 });
