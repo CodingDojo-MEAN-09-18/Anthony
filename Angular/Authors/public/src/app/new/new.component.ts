@@ -15,18 +15,16 @@ export class NewComponent implements OnInit {
     private _http: HttpService
   ) {}
   ngOnInit() {
-    this.addAuthor = {author: ''};
+    this.addAuthor = {name: ''};
   }
   NewAuthor() {
     console.log('clicked worked');
     console.log(this.addAuthor);
-    // code to send off the form data (this.newTask) to the service
-    // Reset this.newTask to new, clean object
-    const observable = this._http.addAuthor({data: this.addAuthor } );
+    const observable = this._http.addAuthor({data: this.addAuthor});
     observable.subscribe(data => {
       console.log('This is from onSubmit and heres the data', data);
     });
-    this.addAuthor = {author: ''};
+    this.addAuthor = {name: ''};
     }
   }
 

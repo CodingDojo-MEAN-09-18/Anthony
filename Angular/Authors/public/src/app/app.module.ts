@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditComponent } from './edit/edit.component';
 import { NewComponent } from './new/new.component';
-import { HttpClientModule} from '@angular/common/http'; // To make http requests
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [

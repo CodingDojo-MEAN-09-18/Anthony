@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const authorSchema = new Schema({
-  Name: {
+  name: {
     type: String,
     trim: true,
+    minlength: [3, 'Task title length must be greater than 3'],
     required: [true, 'Authors name is required'],
-    minlength: [3, 'Task title length must be greater than 5'],
     unique: true
   },
   completed: {
@@ -21,4 +21,4 @@ const authorSchema = new Schema({
 
 //taskSchema.plugin(uniqueValidator, { message: '{PATH} must be unique.' });
 
-module.exports = mongoose.model('Author', taskSchema);
+module.exports = mongoose.model('Author', authorSchema);

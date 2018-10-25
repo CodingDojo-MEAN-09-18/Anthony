@@ -13,7 +13,8 @@ module.exports = function(app){
         console.log('route');
         author.add(req, res);
     });
-    app.put('/:id',function(req, res){
+    app.put('/editaAuthor',function(req, res){
+        console.log('editRoute');
         author.update(req,res);
     });
     app.delete('/:id', function(req, res) {

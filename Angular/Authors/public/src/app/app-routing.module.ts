@@ -7,9 +7,9 @@ const routes: Routes = [
   { path: 'add', component: NewComponent },
   { path: 'edit', component: EditComponent },
   // use a colon and parameter name to include a parameter in the url
-  // { path: 'gamma/:id', component: GammaComponent },
+  { path: 'edit/:id', component: EditComponent },
   // // redirect to /alpha if there is nothing in the url
-  // { path: '', pathMatch: 'full', redirectTo: '/alpha' },
+  // { path: '', pathMatch: 'full', redirectTo: 'home' },
   // // the ** will catch anything that did not match any of the above routes
   // { path: '**', component: PageNotFoundComponent }
 ];

@@ -5,14 +5,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpService {
   constructor(private _http: HttpClient) {
-    // this.getAuthors();
+    this.getAuthors();
   }
   addAuthor(newAuthor) {
-    console.log('This is from addAuthors in service');
+    console.log('This is from addAuthors in service', newAuthor);
     return this._http.post('/addAuthor', newAuthor);
   }
   getAuthors() {
     return this._http.get('/authors');
+  }
+  getAnAuthor(id) {
+    console.log('This is getAnAuthor');
+    return this._http.post('/showAuthor', id);
   }
   postToServer(num) {
     // post is used for more then one argument.
@@ -24,7 +28,7 @@ export class HttpService {
   }
   update(editAuthor) {
     console.log('This is from update', editAuthor);
-    return this._http.post('/editaAuthor', editAuthor);
+    return this._http.put('/editaAuthor', editAuthor);
   }
   remove(AuthorId) {
     console.log('This is from remove', AuthorId);
