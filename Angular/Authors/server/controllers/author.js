@@ -31,14 +31,26 @@ module.exports = {
         console.log('this is form add in controllers', req.body.data);
     },
     update: (req, res) =>{
+        console.log('this is from the controller');
         console.log('The id:',req.body.data.id, 'The name:', req.body.data.name);
-        Author.find({_id:req.body.data.id}), function (err, author) {
-            console.log('Unable to find user', err);
-            author.name = req.body.data.name;
-            author.save(function(error) {
-                console.log('unable to save', error);
-                res.json(error)
-            })
+        Author.findOne({_id:req.body.data.id}), function (err, author) {
+            if (err) {
+                console.log('User Search Error:', err);
+                res.json(err);
+            } 
+            else {
+                author.name = req.body.data.name;
+                author.save(function(error, updated_Author) {
+                    if (err){
+                        console.log('unable to save', error);
+                        res.json(error)
+                    }
+                    else{
+                        console.log('successfully saved edited document');
+                        res.json(updated_Author);
+                    }
+                })
+            }
         }
     },
     remove: (req, res) => {
