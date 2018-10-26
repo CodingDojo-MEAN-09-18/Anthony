@@ -29,4 +29,11 @@ export class AppComponent implements OnInit {
   editInfo(id) {
     this._router.navigate(['/edit/' + id]);
   }
+  remove(id) {
+    console.log(id);
+    const observable = this._http.remove({data: id});
+    observable.subscribe(data => {
+      console.log('deleted', data);
+    });
+  }
 }

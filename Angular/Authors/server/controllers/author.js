@@ -33,33 +33,21 @@ module.exports = {
     update: (req, res) =>{
         console.log('this is from the controller');
         console.log('The id:',req.body.data.id, 'The name:', req.body.data.name);
-        Author.findOne({_id:req.body.data.id}), function (err, author) {
-            if (err) {
-                console.log('User Search Error:', err);
-                res.json(err);
-            } 
-            else {
-                author.name = req.body.data.name;
-                author.save(function(error, updated_Author) {
-                    if (err){
-                        console.log('unable to save', error);
-                        res.json(error)
-                    }
-                    else{
-                        console.log('successfully saved edited document');
-                        res.json(updated_Author);
-                    }
-                })
-            }
-        }
+        Author.findOneAndUpdate({'_id': req.body.data.id},
+            {$set: {'name': req.body.data.name}},function (err){
+                if (err){
+                    console.log('There was an error:',err);
+                }
+            })        
     },
     remove: (req, res) => {
-        Author.deleteOne({ _id:req.params.id })
-        .then( author => res.json(author))
-        .catch( error => {
-            console.log("Remove One Error: ", error);
-            res.json(error);
-        });
+        console.log('This is from the controllers remove', req.body.data);
+        // Author.deleteOne({_id: req.body.data.id})
+        // .then( author => res.json(author))
+        // .catch( error => {
+        //     console.log("Remove One Error: ", error);
+        //     res.json(error);
+        // });
     },
 
 }
