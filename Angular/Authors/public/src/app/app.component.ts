@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   }
   remove(id) {
     console.log(id);
-    const observable = this._http.remove({data: id});
+    const observable = this._http.remove(id);
     observable.subscribe(data => {
       console.log('deleted', data);
     });

@@ -41,13 +41,13 @@ module.exports = {
             })        
     },
     remove: (req, res) => {
-        console.log('This is from the controllers remove', req.body.data);
-        // Author.deleteOne({_id: req.body.data.id})
-        // .then( author => res.json(author))
-        // .catch( error => {
-        //     console.log("Remove One Error: ", error);
-        //     res.json(error);
-        // });
+        console.log('This is from the controllers remove', req.params.id);
+        Author.deleteOne({_id: req.params.id})
+        .then( author => res.json(author))
+        .catch( error => {
+            console.log("Remove One Error: ", error);
+            res.json(error);
+        });
     },
 
 }

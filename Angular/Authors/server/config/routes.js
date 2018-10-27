@@ -17,7 +17,7 @@ module.exports = function(app){
         console.log('editRoute');
         author.update(req,res);
     });
-    app.delete('/remove', function(req, res) {
+    app.delete('/remove/:id', function(req, res) {
         console.log('This is from routes remove');
         author.remove(req, res);
     });

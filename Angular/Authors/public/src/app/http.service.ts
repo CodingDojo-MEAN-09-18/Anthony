@@ -32,6 +32,6 @@ export class HttpService {
   }
   remove(AuthorId) {
     console.log('This is from remove', AuthorId);
-    return this._http.delete('/remove', AuthorId);
+    return this._http.delete('/remove/' + AuthorId);
   }
 }
