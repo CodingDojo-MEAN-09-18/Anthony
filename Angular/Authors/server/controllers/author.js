@@ -37,6 +37,7 @@ module.exports = {
             {$set: {'name': req.body.data.name}},function (err){
                 if (err){
                     console.log('There was an error:',err);
+                    res.json(err);
                 }
             })        
     },
