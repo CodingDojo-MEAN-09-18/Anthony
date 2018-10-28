@@ -1,0 +1,12 @@
+<div id = wrapper>
+  <p>
+    review component
+  </p>
+  <ul>
+    <li><a [routerLink] = "['/product', 'brand', 5]"> Go to /products/details/5 </a> </li>
+    <li><a [routerLink]="['details/5']">Go to /details/5</a></li>
+    <li><a [routerLink]="['author/5']">Go to /author/5</a></li>
+    <li><a [routerLink]="['all/5']">Go to /all/5</a></li>
+  </ul>
+  <router-outlet></router-outlet>
+</div>
