@@ -1,0 +1,6 @@
+<h2>Provide A Quote for {{author.name}}</h2>
+<form (submit)='addQuote($event,form)' #form='ngForm'>
+  Quote: <input type="text" name="author.quote" [(ngModel)]="author.quote" />
+  <input type="submit" value="Create Quote" />
+</form>
+<a [routerLink]="['/']">CANCEL</a>

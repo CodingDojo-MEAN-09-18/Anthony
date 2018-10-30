@@ -1,0 +1,8 @@
+<p>
+  edit works!
+</p>
+<form (submit)='edit($event,form)' #form='ngForm'>
+  <!-- use the json pipe to see how newTask changes in real time -->
+  Author: <input type="text" name="author.name" [(ngModel)]="author.name" />
+  <input type="submit" value="Create Author" />
+</form>

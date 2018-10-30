@@ -1,0 +1,15 @@
+<div>
+  <h2>Quotes by {{author.name}}</h2>
+  <ul>
+    <li>{{author.quote}}<button (click) = "remove(author.quote._id)">Delete</button></li>
+  </ul>
+</div>
+<a [routerLink]="['create/author.id']">Add Quote</a>
+<a [routerLink]="['/']">Home</a>
+<router-outlet></router-outlet>
+
+<!-- <form (submit)='addQuote($event,form)' #form='ngForm'>
+  use the json pipe to see how newTask changes in real time
+  Quote: <input type="text" name="author.quote" [(ngModel)]="author.quote" />
+  <input type="submit" value="Create Quote" />
+</form> -->
