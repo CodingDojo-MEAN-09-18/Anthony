@@ -45,7 +45,7 @@ module.exports = {
         console.log('this is from the controller');
         console.log('The id:',req.body.data.id, 'The name:', req.body.data.quote);
         Author.findOneAndUpdate({'_id': req.body.data.id},
-            {$set: {'quote': req.body.data.quote}}, { runValidators: true },function (err){
+            {$push: {'quote': req.body.data.quote}}, { runValidators: true },function (err){
                 if (err){
                     console.log('There was an error:',err);
                     res.json(err);

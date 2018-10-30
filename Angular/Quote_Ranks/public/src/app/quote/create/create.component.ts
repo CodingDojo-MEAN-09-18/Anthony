@@ -10,6 +10,7 @@ import { HttpService } from 'src/app/http.service';
 export class CreateComponent implements OnInit {
   id: Number;
   author;
+  aQuote;
   constructor(
     private _route: ActivatedRoute,
     private _http: HttpService,
@@ -17,6 +18,7 @@ export class CreateComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.aQuote = {quote: ''};
     // Note the use of .parent
     this._route.parent.params.subscribe(params => {
     console.log(`The parent params: ${params}`);
@@ -29,9 +31,10 @@ export class CreateComponent implements OnInit {
   }
   addQuote(event: Event) {
     event.preventDefault();
-    const observable = this._http.createQuote({data: {id: this.id, quote: this.author.quote}});
+    const observable = this._http.createQuote({data: {id: this.id, quote: this.aQuote.quote}});
     observable.subscribe(data => {
       console.log('This is from click', data);
+    this.aQuote = {quote: ''};
     });
     this._router.navigate(['/']);
   }
