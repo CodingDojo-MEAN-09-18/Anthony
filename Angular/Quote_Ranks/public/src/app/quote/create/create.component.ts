@@ -11,6 +11,7 @@ export class CreateComponent implements OnInit {
   id: Number;
   author;
   aQuote;
+  content: [];
   constructor(
     private _route: ActivatedRoute,
     private _http: HttpService,
@@ -31,7 +32,7 @@ export class CreateComponent implements OnInit {
   }
   addQuote(event: Event) {
     event.preventDefault();
-    const observable = this._http.createQuote({data: {id: this.id, quote: this.aQuote.quote}});
+    const observable = this._http.createQuote({data: {id: this.id, quote: this.aQuote}});
     observable.subscribe(data => {
       console.log('This is from click', data);
     this.aQuote = {quote: ''};

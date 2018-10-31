@@ -25,5 +25,9 @@ module.exports = function(app){
         console.log('quote route');
         author.quote(req, res);
     })
+    app.delete('/removeQuote/:quote', function(req, res) {
+        console.log('quote removal route');
+        author.removeQuote(req, res);
+    })
 
 }

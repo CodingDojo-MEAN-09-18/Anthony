@@ -61,5 +61,8 @@ module.exports = {
             res.json(error);
         });
     },
+    removeQuote: (req, res) => {
+        console.log('This controllers removeQuote', req.params);
+    }
 
 }

@@ -1,11 +1,13 @@
-<div>
-  <h2>Quotes by {{author.name}}</h2>
+<h2>Quotes by {{author.name}}</h2>
+<div *ngFor="let quote of author.quote">
   <ul>
-    <li>{{author.quote}}<button (click) = "remove(author.quote._id)">Delete</button></li>
+    <li>{{quote.quote}}<button (click) = "remove(quote.quote)">Delete</button></li>
   </ul>
 </div>
-<a [routerLink]="['create/author.id']">Add Quote</a>
-<a [routerLink]="['/']">Home</a>
+<ul>
+  <li><a [routerLink]="['create/author.id']">Add Quote</a></li>
+  <li><a [routerLink]="['/']">Home</a></li>
+</ul>
 <router-outlet></router-outlet>
 
 <!-- <form (submit)='addQuote($event,form)' #form='ngForm'>

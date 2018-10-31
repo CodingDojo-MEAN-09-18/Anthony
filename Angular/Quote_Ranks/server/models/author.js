@@ -8,18 +8,9 @@ const authorSchema = new Schema({
     trim: true,
     minlength: [3, 'Name length must be greater than 3'],
     required: [true, 'Authors name is required'],
-    unique: true,
-    validationLevel: "strict"
+    unique: true
   },
-  quote: {
-    type: String,
-    trim: true,
-    minlength: [3, 'Quote length must be greater than 3'],
-    required: [true, 'Authors name is required'],
-    unique: true,
-    validationLevel: "moderate"
-  },
-  
+  quote: [],
   completed: {
     type: Boolean,
     required: true,

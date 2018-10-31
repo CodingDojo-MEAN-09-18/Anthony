@@ -38,4 +38,8 @@ export class HttpService {
     console.log('This is from remove', AuthorId);
     return this._http.delete('/remove/' + AuthorId);
   }
+  removeQuote(quote) {
+    console.log('This is from remove quote service', quote);
+    return this._http.delete('/removeQuote/' + quote);
+  }
 }
