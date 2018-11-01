@@ -1,0 +1,16 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h1>Anonymous Notes</h1>
+<div>
+  <p> {{ word | json }} </p>
+  <form (submit)="submitNote()">
+    Note:<input type="text" name="word.note" [(ngModel)]="word.note" />
+    <input type="submit" value="Add Note">
+  </form>
+</div>
+<div *ngFor="let info of AllNotes">
+  <ul>
+    <li>{{info.note}} {{info.createdAt | date: 'medium'}}</li>
+  </ul>
+</div>
+
+<router-outlet></router-outlet>
