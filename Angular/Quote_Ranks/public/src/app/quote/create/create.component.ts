@@ -8,10 +8,9 @@ import { HttpService } from 'src/app/http.service';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-  id: Number;
   author;
   aQuote;
-  content: [];
+  id: Number;
   constructor(
     private _route: ActivatedRoute,
     private _http: HttpService,
@@ -32,7 +31,7 @@ export class CreateComponent implements OnInit {
   }
   addQuote(event: Event) {
     event.preventDefault();
-    const observable = this._http.createQuote({data: {id: this.id, quote: this.aQuote}});
+    const observable = this._http.createQuote({id: this.id, quote: {quote: this.aQuote.quote, vote: Number}});
     observable.subscribe(data => {
       console.log('This is from click', data);
     this.aQuote = {quote: ''};

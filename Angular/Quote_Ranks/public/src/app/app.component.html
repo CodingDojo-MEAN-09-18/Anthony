@@ -8,7 +8,7 @@
 Authors:
 <div *ngFor = "let name of authors">
   <ul>
-    <li>{{name.name}}<button (click) = "quote(name._id)">View Quotes</button><button (click) = "editInfo(name._id)">Edit</button><button (click) = "remove(name._id)">Delete</button></li>
+    <li>{{name.name}} id:{{name._id}}<button (click) = "quote(name._id)">View Quotes</button><button (click) = "editInfo(name._id)">Edit</button><button (click) = "remove(name._id)">Delete</button></li>
   </ul>
 </div>
 <!-- <button [routerLink]="['edit']">edit</button> -->

@@ -23,11 +23,15 @@ module.exports = function(app){
     });
     app.post('/makeQuote', function(req, res) {
         console.log('quote route');
-        author.quote(req, res);
+        author.makeQuote(req, res);
     })
     app.delete('/removeQuote/:quote', function(req, res) {
         console.log('quote removal route');
         author.removeQuote(req, res);
+    })
+    app.post('/num', function(req, res){
+        console.log('route works');
+        author.modVote(req, res);
     })
 
 }

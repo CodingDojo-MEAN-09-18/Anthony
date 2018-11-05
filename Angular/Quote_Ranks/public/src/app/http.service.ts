@@ -18,9 +18,9 @@ export class HttpService {
     console.log('This is getAnAuthor');
     return this._http.post('/showAuthor', id);
   }
-  createQuote(quote) {
-    console.log('this is create quote');
-    return this._http.post('/makeQuote', quote);
+  createQuote(aQuote) {
+    console.log('this is create quote service', aQuote);
+    return this._http.post('/makeQuote', aQuote);
   }
   postToServer(num) {
     // post is used for more then one argument.
@@ -39,7 +39,14 @@ export class HttpService {
     return this._http.delete('/remove/' + AuthorId);
   }
   removeQuote(quote) {
+    // Have to use JSON.stringify to pass the quote as a string because route delete
+    // won't take objects only strings
     console.log('This is from remove quote service', quote);
-    return this._http.delete('/removeQuote/' + quote);
+    return this._http.delete('/removeQuote/' + JSON.stringify(quote));
+  }
+  numChange(num) {
+    // this will add or subtract into the db
+    console.log('this is from numChange in service', num);
+    return this._http.post('/num', num);
   }
 }

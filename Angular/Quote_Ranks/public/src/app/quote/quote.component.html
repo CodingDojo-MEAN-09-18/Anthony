@@ -1,7 +1,7 @@
 <h2>Quotes by {{author.name}}</h2>
 <div *ngFor="let quote of author.quote">
   <ul>
-    <li>{{quote.quote}}<button (click) = "remove(quote.quote)">Delete</button></li>
+    <li>{{quote.quote}}<button (click) = "numDist(quote)">Vote</button><button (click) = "remove(quote.quote)">Delete</button></li>
   </ul>
 </div>
 <ul>
