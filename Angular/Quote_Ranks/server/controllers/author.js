@@ -81,20 +81,23 @@ module.exports = {
         console.log('controllers', req.body.data);
         var quoteOb = req.body.data.words;
         Author.findOne({_id: req.body.data.id}, function (err, author) {
-            var QuoteObject = (author.quote).find(function(qInfo) {
-                return qInfo == req.body.data.words;
-            })
-            console.log(QuoteObject);
-            QuoteObject.vote.inc = req.body.data.aVote;
-            author.save(function(err, data) {
-                if (err) {
-                    return res.json("Issue with modifing Vote");
+            for ( var word of author.quote) {
+                console.log("This is from the for loop", word);
+                if (word == req.body.data.words) {
+                    word.vote.inc = req.body.data.aVote;
+                    author.save(function(err, data) {
+                        if (err) {
+                            return res.json("Issue with modifing Vote");
+                        }
+                        else{
+                            res.json(data);
+                            console.log("The vote was changed/modified")
+                        }
+                    })
+                    console.log("Success")
                 }
-                else{
-                    res.json(data);
-                    console.log("The vote was changed/modified")
-                }
-            })
+            }
+
         })
     }
 }
