@@ -1,0 +1,8 @@
+.DS_Store
+.idea
+.vagrant
+bootstrap.sh
+Vagrant File
+bower_components/
+node_modules
+package-lock.json
