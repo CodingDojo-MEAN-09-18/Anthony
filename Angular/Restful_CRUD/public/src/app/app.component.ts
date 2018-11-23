@@ -43,6 +43,11 @@ export class AppComponent implements OnInit {
   observable.subscribe(data => {
     console.log('This is from onSubmit and heres the data', data);
   });
+  const ReGetData = this._httpService.getTasks();
+    ReGetData.subscribe(data => {
+      console.log('Got our data!', data);
+      this.task = data;
+    });
   this.newTask = {title: '', description: ''};
   }
   getInfo(num: Number): void {

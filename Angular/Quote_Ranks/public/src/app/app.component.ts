@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
     this._router.navigate(['/quote/' + id]);
   }
   editInfo(id) {
-    this._router.navigate(['/edit/' + id]);
+    this._router.navigate(['edit/' + id]);
   }
   remove(id) {
     console.log(id);

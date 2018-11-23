@@ -1,6 +1,6 @@
 import { HttpService } from './http.service';
 import { Component, OnInit } from '@angular/core';
-//Implement OnInit
+// Implement OnInit
 @Component({
   selector: 'app-root',
   templateUrl:'./app.component.html',
@@ -10,13 +10,14 @@ export class AppComponent implements OnInit {
   tasks_title;
   tasks_info;
   aNumber: number;
-  //"let tasks: any", where any could be any type of data
-  //For example if you know your data will be a string you
-  //could assign a variable as such: let str: string;
-  title = "app";
+  // "let tasks: any", where any could be any type of data
+  // For example if you know your data will be a string you
+  // could assign a variable as such: let str: string;
+  title = 'app';
   constructor(private _httpService: HttpService){}
-  //ngOnit runs right away before webpage.
-  ngOnInit(){
+  // ngOnit runs right away before webpage.
+  ngOnInit() {
+    this.showAll();
   }
   // getTasksFromService(){
   //   let observable = this._httpService.getTasks()
@@ -27,17 +28,17 @@ export class AppComponent implements OnInit {
   // }
   showAll(): void {
     console.log(`Click event is working`);
-    let observable = this._httpService.getTasks()
+    const observable = this._httpService.getTasks();
     observable.subscribe(data => {
-      console.log('Got our data! First button', data)
+      console.log('Got our data! First button', data);
       this.tasks_title = data;
     });
-  };
+  }
   displayInfo(num: Number): void {
     console.log(`click event working: ${num}`);
-    let observableTwo = this._httpService.postToServer({data:num});
+    const observableTwo = this._httpService.postToServer({data: num});
     observableTwo.subscribe(data => {
-      console.log("This is from subscribe!", data)
+      console.log('This is from subscribe!', data);
       this.tasks_info = data;
     });
   };

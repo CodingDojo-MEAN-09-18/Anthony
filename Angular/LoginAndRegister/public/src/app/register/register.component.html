@@ -1,0 +1,7 @@
+<h2>Register</h2>
+{{ user | json }}
+<form (submit) = "onSubmit()">
+  Name: <input type = "text" name = "user.name" [(ngModel)]="user.name"/>
+  Email: <input type = "text" name = "user.email" [(ngModel)]="user.email"/>
+  <input type ="submit" value="submit"/>
+</form>
